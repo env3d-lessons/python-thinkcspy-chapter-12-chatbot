@@ -4,7 +4,7 @@ In the Chapter 4 Challenge Exercise, you are introduced to the `chat` function t
 to return a string in response to a string input parameter.  The response is generated
 by a Large Language Model AI such as ChatGPT.  
 
-Chapters 10 and 12 introduces python list and dictionary data structures, just so happened that
+Chapters 10 and 12 introduced python list and dictionary data structures, just so happens that
 these are the building blocks of modern AI functions.
 
 Here is a new version of chat function that does not use a string as input, but use a list of
@@ -29,7 +29,7 @@ The `chat` function will return a string response from the AI.
 # ChatBot UI
 
 In chapter 8, you were introduced to the while loop, which is a way to repeat a block of code until a condition is met.  The while
-loop is often used to create a simple user interface (UI).  Here's is an example of a simple UI using the while loop:
+loop is often used to create a simple user interface (UI).  Here's an example of a simple UI using the while loop:
 
 ```python
 from chat import chat
@@ -60,6 +60,8 @@ while True:
 Copying the above into main.py will give you a simple chatbot that you can interact with.  
 You can type in any question, and the AI will respond!
 
+This interface runs in the terminal and continues until the user types "exit".
+
 # Example Conversation
 
 Below is a running example of the chatbot UI when run in the terminal:
@@ -78,6 +80,8 @@ You will quickly realize that while our chatbot is functional for simple questio
 holding a conversation.  It seems like it can't even remember the answer to the previous question!
 
 ## Exercise 1
+
+Copy the basic chatbot code above into `main.py` and experiment with it.
 
 Come up with another set of conversation with the above chatbot to prove that
 it does not remember previous messages. 
@@ -141,7 +145,7 @@ Noticed that the AI now assumes all reference to "previous result" is 4, since t
 Modify the above chatbot code so that it remembers all previous messages in the conversation.  You can
 do this by appending each new message from user and assistant to the `prompt` list.  This way, the AI will have access to the entire conversation history.  To accomplish this:
 
-  - you will need to move the prompt variable outside of the while loop so that it can accumulate messages similar to the accumulator pattern we learned in Chapter 10, but with a while loop.
+  - you will need to move the `prompt` variable outside of the while loop so that it can accumulate messages similar to the accumulator pattern we learned in Chapter 10, but with a while loop.
   - add a couple lines of code to append the user input and AI response to the prompt list after each interaction.
 
 Below is the running example of the chatbot with memory when run in the terminal:
@@ -255,6 +259,8 @@ You: exit
 Goodbye!
 ```
 
+Note: This example is used strictly to demonstrate how AI can be influenced by prior context. The AI-generated responses may be inconsistent or factually incorrect, and do not reflect any official position or endorsement.
+
 ## Exercise 3
 
-Create your own prompt engineering example that includes a fabricated conversation history.
+Try creating a character-based conversation history. For example, pretend the assistant is an 18th-century scientist or a detective solving a mystery. Then ask follow-up questions and observe how the AI stays in character or responds differently than usual.
