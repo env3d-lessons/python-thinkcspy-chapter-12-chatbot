@@ -34,27 +34,32 @@ loop is often used to create a simple user interface (UI).  Here's an example of
 ```python
 from chat import chat
 
-while True:
+def main():
+    while True:
 
-    # We first get input from the user
-    user_input = input("You: ")
-    
-    # We use the string function .lower() to make the input case-insensitive, then check
-    # if the user wants to exit the chat
-    if user_input.lower() == "exit":
-        print("Goodbye!")
-        break
+        # We first get input from the user
+        user_input = input("You: ")
+        
+        # We use the string function .lower() to make the input case-insensitive, then check
+        # if the user wants to exit the chat
+        if user_input.lower() == "exit":
+            print("Goodbye!")
+            break
 
-    # We build the prompt for the chat function
-    prompt = [
-        {"role": "user", "content": user_input}
-    ]
+        # We build the prompt for the chat function
+        prompt = [
+            {"role": "user", "content": user_input}
+        ]
 
-    # We call the chat function with the prompt
-    response = chat(prompt)
+        # We call the chat function with the prompt
+        response = chat(prompt)
 
-    # Finally, we print the response from the AI
-    print("AI:", response)
+        # Finally, we print the response from the AI
+        print("AI:", response)
+
+if __name__ == '__main__':
+    # Lanuch the main() function if `python main.py` is entered from the terminal
+    main()
 ```
 
 Copying the above into main.py will give you a simple chatbot that you can interact with.  
@@ -97,29 +102,35 @@ Here's an example of a more elaborate prompt that includes the conversation hist
 ```python
 from chat import chat
 
-while True:
+def main():
+    while True:
 
-    # We first get input from the user
-    user_input = input("You: ")
-    
-    # We use the string function .lower() to make the input case-insensitive, then check
-    # if the user wants to exit the chat
-    if user_input.lower() == "exit":
-        print("Goodbye!")
-        break
+        # We first get input from the user
+        user_input = input("You: ")
+        
+        # We use the string function .lower() to make the input case-insensitive, then check
+        # if the user wants to exit the chat
+        if user_input.lower() == "exit":
+            print("Goodbye!")
+            break
 
-    # We build the prompt for the chat function
-    prompt = [  
-        {"role": "user", "content": "What is 2 + 2?"},
-        {"role": "assistant", "content": "2 + 2 = 4"},
-        {"role": "user", "content": user_input}
-    ]
+        # We build the prompt for the chat function
+        prompt = [  
+            {"role": "user", "content": "What is 2 + 2?"},
+            {"role": "assistant", "content": "2 + 2 = 4"},
+            {"role": "user", "content": user_input}
+        ]        
 
-    # We call the chat function with the prompt
-    response = chat(prompt)
+        # We call the chat function with the prompt
+        response = chat(prompt)
 
-    # Finally, we print the response from the AI
-    print("AI:", response)
+        # Finally, we print the response from the AI
+        print("AI:", response)
+
+if __name__ == '__main__':
+    # Lanuch the main() function if `python main.py` is entered from the terminal
+    main()
+
 ```
 
 Below is the running example of the above chatbot when run in the terminal:
@@ -163,6 +174,8 @@ You:
 ```
 
 # What is "Prompt Engineering"?
+
+**Note:** *This example is used strictly to demonstrate how AI can be influenced by prior context. The AI-generated responses may be inconsistent or factually incorrect, and do not reflect any official position or endorsement.*
 
 Prompt engineering is the art of crafting effective prompts to get the best responses from AI models. 
 It involves understanding how the AI interprets input and designing prompts that guide the AI to produce desired outputs.
@@ -259,8 +272,31 @@ You: exit
 Goodbye!
 ```
 
-Note: This example is used strictly to demonstrate how AI can be influenced by prior context. The AI-generated responses may be inconsistent or factually incorrect, and do not reflect any official position or endorsement.
 
 ## Exercise 3
 
 Try creating a character-based conversation history. For example, pretend the assistant is an 18th-century scientist or a detective solving a mystery. Then ask follow-up questions and observe how the AI stays in character or responds differently than usual.
+
+
+# Testing Your Chatbot
+
+You can run `pytest` to check if your chatbot is working correctly.  However, this 
+only checks teh technical correctness of the code, not the quality of your prompt or
+the AI responses.
+
+**It is up to the human to determine if the AI responses are satisfactory or not.**
+
+# Submitting Your Work
+
+When you are done with the exercises, issue the following command to submit your work:
+
+```bash
+git add -A
+git commit -m 'update'
+git push
+```
+
+
+
+
+

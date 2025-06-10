@@ -22,7 +22,7 @@ def chat(prompt =  [{"role": "user", "content": "Hello"}], temperature = 1.0):
     global model
     
     if CALL_FROM_PYTEST:
-        return "Test Response"
+        return prompt
     
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
