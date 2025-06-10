@@ -15,7 +15,7 @@ model_name = "Qwen/Qwen3-0.6B"
 tokenizer = None
 model = None
 
-def chat(prompt =  "hello", temperature = 1.0):
+def chat(prompt =  [{"role": "user", "content": "Hello"}], temperature = 1.0):
 
     global model_name
     global tokenizer
@@ -34,12 +34,8 @@ def chat(prompt =  "hello", temperature = 1.0):
             model_name
         )
 
-    # prepare the model input    
-    messages = [
-        {"role": "user", "content": prompt}
-    ]
     text = tokenizer.apply_chat_template(
-        messages,
+        prompt,
         tokenize=False,
         add_generation_prompt=True,
         enable_thinking=False # Switches between thinking and non-thinking modes. Default is True.
@@ -69,7 +65,7 @@ def chat(prompt =  "hello", temperature = 1.0):
     # print("content:", content)
     return content
     
-def complete(prompt =  "<|im_start>user\nhello<|im_end|>\n<|im_start|>assistant\n", temperature = 1.0):
+def complete(prompt =  "<|im_start>user\nhello<|im_end|>\n<|im_start|>assistant\n", temperature = 1.0, max_new_tokens = 512):
     """
     Like chat, but without the chat template.
     """
@@ -98,7 +94,7 @@ def complete(prompt =  "<|im_start>user\nhello<|im_end|>\n<|im_start|>assistant\
         **model_inputs,
         temperature=temperature,  # ← added parameter here
         do_sample=True,            # ← must be True for temperature to have an effect        
-        max_new_tokens=256
+        max_new_tokens=max_new_tokens
     )
     output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist() 
 
@@ -156,3 +152,24 @@ def get_next_token_list(sentence, top_k = 10):
     results = get_next_token_dictionary(sentence, top_k)
     sorted_results = sorted(results, key=lambda x: x.get("probability"), reverse=True)
     return [r["token"] for r in sorted_results]
+
+
+
+# Some fun completion methods
+from random import randint
+
+def greedy_complete(sentence, num_tokens):    
+    for _ in range(num_tokens):
+        sentence += get_next_token_list(sentence)[0]        
+    return sentence
+
+def random_complete(sentence, num_tokens):
+    for _ in range(num_tokens):
+        choices = get_next_token_list(sentence)
+        sentence += choices[randint(0, len(choices)-1)]        
+    return sentence
+
+def worst_complete(sentence, num_tokens):
+    for _ in range(num_tokens):
+        sentence += get_next_token_list(sentence)[-1]        
+    return sentence
