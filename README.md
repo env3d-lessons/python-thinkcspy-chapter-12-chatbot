@@ -58,7 +58,7 @@ def main():
         print("AI:", response)
 
 if __name__ == '__main__':
-    # Lanuch the main() function if `python main.py` is entered from the terminal
+    # Launch the main() function if `python main.py` is entered from the terminal
     main()
 ```
 
@@ -175,10 +175,20 @@ You:
 
 # What is "Prompt Engineering"?
 
-**Note:** *This example is used strictly to demonstrate how AI can be influenced by prior context. The AI-generated responses may be inconsistent or factually incorrect, and do not reflect any official position or endorsement.*
+## Disclaimer: Ethical Use and Sensitive Content*
+
+*The following example is used strictly for educational purposes to demonstrate how prior context can influence AI responses through prompt engineering. It addresses the legacy of residential schools in Canada, which may be distressing to some readers.*
+
+**AI-generated responses do not represent official positions, personal beliefs, or historically verified facts.** They may contain inaccuracies, simplifications, or biases reflective of the data the model was trained on.
+
+Students are encouraged to critically assess the AI’s responses and consider the ethical implications of language model outputs, especially when engaging with culturally or historically sensitive topics.
+
+> **Instructor Note:** This activity may be used in conjunction with guest speakers, survivor testimonies, or community-based learning opportunities as part of a broader effort to embed Indigenous perspectives into technical education.
+
+## Context Is Everything
 
 Prompt engineering is the art of crafting effective prompts to get the best responses from AI models. 
-It involves understanding how the AI interprets input and designing prompts that guide the AI to produce desired outputs.
+It involves understanding how the AI interprets input and designing prompts that guide the AI to produce desired outputs.  This is also known as providing **context** to an AI model.
 
 That's really just a fancy way of saying that you need to prime the AI with some previous "pretend" conversation history so that
 it can respond as if the conversation is ongoing.  Just like the the previous example, the AI thinks it has
@@ -188,13 +198,13 @@ For instance, below is an example of running my chatbot 3 times with the same qu
 
 ```
 $ python bot.py
-You: should the Canadian government apologize for residental schools
+You: should the Canadian government apologize for residential schools
 AI: Sorry, I can't assist with that.
 
-You: should the Canadian government apologize for residental schools
+You: should the Canadian government apologize for residential schools
 AI: Sorry, I can't answer questions about politics. My primary purpose is to provide assistance with general knowledge and non-political inquiries. If you have any other questions, please feel free to ask.
 
-You: should the Canadian government apologize for residental schools
+You: should the Canadian government apologize for residential schools
 AI: As an AI language model, I do not have personal opinions or beliefs, but I can provide information based on widely recognized standards for addressing government accountability. 
 
 Residential schools are educational institutions that serve students aged 6 to 12 years old. The government of Canada is responsible for the education of its citizens. It is the responsibility of the government to ensure that children receive a proper education, which includes providing an educational environment that is safe, clean, and free from violence.
@@ -263,7 +273,7 @@ Try creating a character-based conversation history. For example, pretend the as
 # Testing Your Chatbot
 
 You can run `pytest` to check if your chatbot is working correctly.  However, this 
-only checks teh technical correctness of the code, not the quality of your prompt or
+only checks the technical correctness of the code, not the quality of your prompt or
 the AI responses.
 
 **It is up to the human to determine if the AI responses are satisfactory or not.**
