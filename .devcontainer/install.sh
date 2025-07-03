@@ -1,6 +1,6 @@
 #!/bin/bash
-export LLAMA_CPP_LIB_PATH=/workspaces/$(basename $(pwd))/.devcontainer/ >> ~/.bashrc
-export LD_LIBRARY_PATH=/workspaces/$(basename $(pwd))/.devcontainer/ >> ~/.bashrc
+echo "export LLAMA_CPP_LIB_PATH=/workspaces/$(basename $(pwd))/.devcontainer/" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=/workspaces/$(basename $(pwd))/.devcontainer/" >> ~/.bashrc
 export LLAMA_CPP_LIB=/workspaces/$(basename $(pwd))/.devcontainer/libllama.so
 CMAKE_ARGS="-DLLAMA_BUILD=OFF" pip install llama-cpp-python==0.3.10
 
