@@ -128,7 +128,7 @@ def main():
         print("AI:", response)
 
 if __name__ == '__main__':
-    # Lanuch the main() function if `python main.py` is entered from the terminal
+    # Launch the main() function if `python main.py` is entered from the terminal
     main()
 
 ```
