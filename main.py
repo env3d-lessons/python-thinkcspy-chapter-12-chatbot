@@ -1,11 +1,19 @@
 from chat import chat
 
-user = input('What country? ')
-while user != 'exit':
-    prompt = [
-        {"role": "user", "content": "What is the capital of " + user + "?"} 
-    ]
-    print(chat(prompt))
-    user = input('What country? ')
+# Modify the main function as per requirements from README.md
+# Below is a simple example of how to use the chat function
 
-print('Goodbye')
+def main():
+
+    # Ask user for input and call the chat function
+    user_input = input("User: ")
+
+    # Call the chat function with user input
+    response = chat( [{"role": "user", "content": user_input}] )
+
+    # Print the AI's response and exit
+    print("AI:", response)
+
+if __name__ == '__main__':
+    # Launch the main() function if `python main.py` is entered from the terminal
+    main()

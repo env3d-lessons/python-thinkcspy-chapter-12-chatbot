@@ -3,6 +3,7 @@ import random
 import math
 import sys, os
 
+
 # Suppress stderr temporarily
 stderr = sys.stderr
 sys.stderr = open(os.devnull, 'w')
